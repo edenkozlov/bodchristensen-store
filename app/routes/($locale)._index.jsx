@@ -103,6 +103,9 @@ export default function Homepage() {
         <Hero {...primaryHero} height="full" top loading="eager" />
       )}
 
+      lil test
+      
+
       {featuredProducts && (
         <Suspense>
           <Await resolve={featuredProducts}>
