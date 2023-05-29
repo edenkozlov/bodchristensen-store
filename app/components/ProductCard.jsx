@@ -114,7 +114,7 @@ export function ProductCard({
 }
 
 function CompareAtPrice({data, className}) {
-  const {currencyNarrowSymbol, withoutTrailingZerosAndCurrency} =
+  const {currencyNarrowSymbol, withoutTrailingZerosAndCurrency, currencyName} =
     useMoney(data);
 
   const styles = clsx('strike', className);
@@ -123,6 +123,7 @@ function CompareAtPrice({data, className}) {
     <span className={styles}>
       {currencyNarrowSymbol}
       {withoutTrailingZerosAndCurrency}
+      {currencyName}
     </span>
   );
 }
