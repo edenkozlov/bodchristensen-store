@@ -103,7 +103,7 @@ export default function Homepage() {
         <Hero {...primaryHero} height="full" top loading="eager" />
       )}
 
-      lil test
+      lil test2
       
 
       {featuredProducts && (
