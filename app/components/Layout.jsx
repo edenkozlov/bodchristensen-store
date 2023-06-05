@@ -34,10 +34,14 @@ export function Layout({children, layout}) {
             Skip to content
           </a>
         </div>
+        <div>
         <Header
-          title={layout?.shop.name ?? 'Hydrogen'}
+          title={layout?.shop.name ?? 'Bod & Christensen'}
           menu={layout?.headerMenu}
         />
+        
+        
+        </div>
         <main role="main" id="mainContent" className="flex-grow">
           {children}
         </main>
@@ -118,7 +122,7 @@ export function MenuDrawer({isOpen, onClose, menu}) {
   );
 }
 
-function MenuMobileNav({menu, onClose}) {
+function MenuMobileNav({ menu, onClose }) {
   return (
     <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 sm:py-8">
       {/* Top level menu items */}
@@ -128,7 +132,7 @@ function MenuMobileNav({menu, onClose}) {
             to={item.to}
             target={item.target}
             onClick={onClose}
-            className={({isActive}) =>
+            className={({ isActive }) =>
               isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
             }
           >
@@ -138,9 +142,42 @@ function MenuMobileNav({menu, onClose}) {
           </Link>
         </span>
       ))}
+
+      <span className="block">
+      <Link className="font" to="/products" prefetch="intent">
+          All Products
+        </Link>
+        <Link to="/" onClick={onClose} className="pb-1">
+          <Text as="span" size="copy">
+            Vintage Collection
+          </Text>
+        </Link>
+      </span>
+      <span className="block">
+        <Link to="/" onClick={onClose} className="pb-1">
+          <Text as="span" size="copy">
+            Sale
+          </Text>
+        </Link>
+      </span>
+      <span className="block">
+        <Link to="/" onClick={onClose} className="pb-1">
+          <Text as="span" size="copy">
+            The Runway
+          </Text>
+        </Link>
+      </span>
+      <span className="block">
+        <Link to="/" onClick={onClose} className="pb-1">
+          <Text as="span" size="copy">
+            About Us
+          </Text>
+        </Link>
+      </span>
     </nav>
   );
 }
+
 
 function MobileHeader({title, isHome, openCart, openMenu}) {
   // useHeaderStyleFix(containerStyle, setContainerStyle, isHome);
@@ -154,13 +191,14 @@ function MobileHeader({title, isHome, openCart, openMenu}) {
         isHome
           ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
           : 'bg-contrast/80 text-primary'
-      } flex lg:hidden items-center h-nav sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 px-4 md:px-8`}
+      } flex lg:hidden items-center h-12 sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 px-4 md:px-8`}
     >
       <div className="flex items-center justify-start w-full gap-4">
         <button
           onClick={openMenu}
           className="relative flex items-center justify-center w-8 h-8"
         >
+          
           <IconMenu />
         </button>
         <Form
@@ -185,6 +223,7 @@ function MobileHeader({title, isHome, openCart, openMenu}) {
             placeholder="Search"
             name="q"
           />
+          
         </Form>
       </div>
 
@@ -192,12 +231,14 @@ function MobileHeader({title, isHome, openCart, openMenu}) {
         className="flex items-center self-stretch leading-[3rem] md:leading-[4rem] justify-center flex-grow w-full h-full"
         to="/"
       >
+          
         <Heading
           className="font-bold text-center leading-none"
           as={isHome ? 'h1' : 'h2'}
         >
           {title}
         </Heading>
+        
       </Link>
 
       <div className="flex items-center justify-end w-full gap-4">
@@ -220,11 +261,26 @@ function DesktopHeader({isHome, menu, openCart, title}) {
           : 'bg-contrast/80 text-primary'
       } ${
         !isHome && y > 50 && ' shadow-lightHeader'
-      } hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-12 py-8`}
+      } hidden h-12 lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-12 py-8`}
     >
       <div className="flex gap-12">
         <Link className="font-bold" to="/" prefetch="intent">
           {title}
+        </Link>
+        <Link className="font" to="/products" prefetch="intent">
+          All Products
+        </Link>
+        <Link className="font" to="/" prefetch="intent">
+          Vintage Collection
+        </Link>
+        <Link className="font" to="/" prefetch="intent">
+          Sale
+        </Link>
+        <Link className="font" to="/TheRunway" prefetch="intent">
+          The Runway
+        </Link>
+        <Link className="font" to="/" prefetch="intent">
+          About Us
         </Link>
         <nav className="flex gap-8">
           {/* Top level menu items */}
@@ -417,7 +473,7 @@ function FooterMenu({menu}) {
                       open ? `max-h-48 h-fit` : `max-h-0 md:max-h-fit`
                     } overflow-hidden transition-all duration-300`}
                   >
-                    <Suspense data-comment="This suspense fixes a hydration bug in Disclosure.Panel with static prop">
+                    <Suspense data-comment="This suspefse fixes a hydration bug in Disclosure.Panel with static prop">
                       <Disclosure.Panel static>
                         <nav className={styles.nav}>
                           {item.items.map((subItem) => (

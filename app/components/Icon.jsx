@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+
 function Icon({children, className, fill = 'currentColor', stroke, ...props}) {
   return (
     <svg
@@ -22,6 +23,7 @@ export function IconMenu(props) {
       <line x1="3" y1="6.375" x2="17" y2="6.375" strokeWidth="1.25" />
       <line x1="3" y1="10.375" x2="17" y2="10.375" strokeWidth="1.25" />
       <line x1="3" y1="14.375" x2="17" y2="14.375" strokeWidth="1.25" />
+      
     </Icon>
   );
 }
@@ -43,6 +45,7 @@ export function IconClose(props) {
         y2="-0.625"
         transform="matrix(-0.707107 0.707107 0.707107 0.707107 16 4.75)"
         strokeWidth="1.25"
+        
       />
     </Icon>
   );

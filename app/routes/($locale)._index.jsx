@@ -87,7 +87,6 @@ export async function loader({params, context}) {
 
 export default function Homepage() {
   const {
-    primaryHero,
     secondaryHero,
     tertiaryHero,
     featuredCollections,
@@ -99,11 +98,9 @@ export default function Homepage() {
 
   return (
     <>
-      {primaryHero && (
-        <Hero {...primaryHero} height="full" top loading="eager" />
-      )}
+      
 
-      lil test2
+      lil test
       
 
       {featuredProducts && (
