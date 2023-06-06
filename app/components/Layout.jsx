@@ -3,6 +3,8 @@ import {useWindowScroll} from 'react-use';
 import {Disclosure} from '@headlessui/react';
 import {Suspense, useEffect, useMemo} from 'react';
 
+
+
 import {
   Drawer,
   useDrawer,
@@ -147,19 +149,35 @@ function MenuMobileNav({ menu, onClose }) {
       <Link className="font" to="/products" prefetch="intent">
           All Products
         </Link>
-        <Link to="/" onClick={onClose} className="pb-1">
-          <Text as="span" size="copy">
-            Vintage Collection
-          </Text>
-        </Link>
+        
       </span>
+      
       <span className="block">
-        <Link to="/" onClick={onClose} className="pb-1">
+        <Link to="/collections/sale" onClick={onClose} className="pb-1">
           <Text as="span" size="copy">
             Sale
           </Text>
         </Link>
       </span>
+
+      <span>
+      <Link to="/collections" onClick={onClose} className="pb-1">
+          <Text as="span" size="copy">
+            Vintage Collection
+          </Text>
+        </Link>
+      </span>
+
+      
+
+      <span className="block">
+        <Link to="/collections/new-arrivals" onClick={onClose} className="pb-1">
+          <Text as="span" size="copy">
+            New Arrivals
+          </Text>
+        </Link>
+      </span>
+
       <span className="block">
         <Link to="/" onClick={onClose} className="pb-1">
           <Text as="span" size="copy">
@@ -168,7 +186,7 @@ function MenuMobileNav({ menu, onClose }) {
         </Link>
       </span>
       <span className="block">
-        <Link to="/" onClick={onClose} className="pb-1">
+        <Link to="/pages/copy-of-about-us" onClick={onClose} className="pb-1">
           <Text as="span" size="copy">
             About Us
           </Text>
@@ -267,21 +285,112 @@ function DesktopHeader({isHome, menu, openCart, title}) {
         <Link className="font-bold" to="/" prefetch="intent">
           {title}
         </Link>
-        <Link className="font" to="/products" prefetch="intent">
-          All Products
-        </Link>
-        <Link className="font" to="/" prefetch="intent">
-          Vintage Collection
-        </Link>
-        <Link className="font" to="/" prefetch="intent">
-          Sale
-        </Link>
-        <Link className="font" to="/TheRunway" prefetch="intent">
-          The Runway
-        </Link>
-        <Link className="font" to="/" prefetch="intent">
-          About Us
-        </Link>
+        <Link
+  className="font"
+  to="/products"
+  prefetch="intent"
+  style={{
+    transition: "transform 0.3s",
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.transform = "translateY(-3px)";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.transform = "translateY(0)";
+  }}
+>
+  All Products
+</Link>
+
+        
+        <Link
+  className="font"
+  to="/collections"
+  prefetch="intent"
+  style={{
+    transition: "transform 0.3s",
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.transform = "translateY(-3px)";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.transform = "translateY(0)";
+  }}
+>
+  Vintage Collection
+</Link>
+
+        
+<Link
+  className="font"
+  to="/collections/sale"
+  prefetch="intent"
+  style={{
+    transition: "transform 0.3s",
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.transform = "translateY(-3px)";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.transform = "translateY(0)";
+  }}
+>
+  Sale
+</Link>
+
+<Link
+  className="font"
+  to="/collections/new-arrivals"
+  prefetch="intent"
+  style={{
+    transition: "transform 0.3s",
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.transform = "translateY(-3px)";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.transform = "translateY(0)";
+  }}
+>
+  New Arrivals
+</Link>
+
+
+
+<Link
+  className="font"
+  to="/"
+  prefetch="intent"
+  style={{
+    transition: "transform 0.3s",
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.transform = "translateY(-3px)";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.transform = "translateY(0)";
+  }}
+>
+  The Runway
+</Link>
+
+<Link
+  className="font"
+  to="/pages/copy-of-about-us"
+  prefetch="intent"
+  style={{
+    transition: "transform 0.3s",
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.transform = "translateY(-3px)";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.transform = "translateY(0)";
+  }}
+>
+  About Us
+</Link>
+
         <nav className="flex gap-8">
           {/* Top level menu items */}
           {(menu?.items || []).map((item) => (

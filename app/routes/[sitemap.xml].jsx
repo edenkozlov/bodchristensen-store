@@ -1,5 +1,7 @@
 import {flattenConnection} from '@shopify/hydrogen';
 import invariant from 'tiny-invariant';
+import Pulse from 'react-reveal/Pulse';
+
 
 const MAX_URLS = 250; // the google limit is 50K, however, SF API only allow querying for 250 resources each time
 
@@ -70,6 +72,7 @@ function shopSitemap({data, baseUrl}) {
       };
     });
 
+    
   const pagesData = flattenConnection(data.pages)
     .filter((page) => page.onlineStoreUrl)
     .map((page) => {
@@ -80,7 +83,9 @@ function shopSitemap({data, baseUrl}) {
         lastMod: page.updatedAt,
         changeFreq: 'weekly',
       };
+      
     });
+    
 
   const urlsDatas = [...productsData, ...collectionsData, ...pagesData];
 
@@ -89,9 +94,12 @@ function shopSitemap({data, baseUrl}) {
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
     >
+      
       ${urlsDatas.map((url) => renderUrlTag(url)).join('')}
     </urlset>`;
+    
 }
+
 
 function renderUrlTag({url, lastMod, changeFreq, image}) {
   return `
