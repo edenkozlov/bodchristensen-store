@@ -26,9 +26,9 @@ export function ProductCard({
   if (label) {
     cardLabel = label;
   } else if (isDiscounted(price, compareAtPrice)) {
-    cardLabel = 'Sale';
+    cardLabel = '';
   } else if (isNewArrival(product.publishedAt)) {
-    cardLabel = 'New';
+    cardLabel = '';
   }
 
   const productAnalytics = {
@@ -42,17 +42,18 @@ export function ProductCard({
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-4">
       <Link
         onClick={onClick}
         to={`/products/${product.handle}`}
         prefetch="intent"
       >
         <div className={clsx('grid gap-4', className)}>
+          
           <div className="card-image aspect-[4/5] bg-primary/5">
             {image && (
               <Image
-                className="object-cover w-full fadeIn"
+                className="object-cover w-full fadeIn "
                 sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 45vw"
                 aspectRatio="4/5"
                 data={image}
@@ -127,3 +128,5 @@ function CompareAtPrice({data, className}) {
     </span>
   );
 }
+
+

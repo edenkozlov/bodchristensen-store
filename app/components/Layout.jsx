@@ -161,7 +161,7 @@ function MenuMobileNav({ menu, onClose }) {
       </span>
 
       <span>
-      <Link to="/collections" onClick={onClose} className="pb-1">
+      <Link to="/collections/vintage" onClick={onClose} className="pb-1">
           <Text as="span" size="copy">
             Vintage Collection
           </Text>
@@ -290,13 +290,16 @@ function DesktopHeader({isHome, menu, openCart, title}) {
   to="/products"
   prefetch="intent"
   style={{
-    transition: "transform 0.3s",
+    transition: "transform 0.3s, cursor 0.3s",
+    cursor: "pointer",
   }}
   onMouseEnter={(e) => {
     e.target.style.transform = "translateY(-3px)";
+    e.target.style.cursor = "pointer";
   }}
   onMouseLeave={(e) => {
     e.target.style.transform = "translateY(0)";
+    e.target.style.cursor = "auto";
   }}
 >
   All Products
@@ -305,7 +308,7 @@ function DesktopHeader({isHome, menu, openCart, title}) {
         
         <Link
   className="font"
-  to="/collections"
+  to="/collections/vintage"
   prefetch="intent"
   style={{
     transition: "transform 0.3s",
