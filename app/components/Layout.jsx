@@ -1,7 +1,9 @@
 import {useParams, Form, Await, useMatches} from '@remix-run/react';
 import {useWindowScroll} from 'react-use';
 import {Disclosure} from '@headlessui/react';
-import {Suspense, useEffect, useMemo} from 'react';
+import {Suspense, useEffect, useMemo, useState} from 'react';
+import { Modal } from '~/components';
+
 
 
 
@@ -28,6 +30,9 @@ import {useIsHydrated} from '~/hooks/useIsHydrated';
 import {useCartFetchers} from '~/hooks/useCartFetchers';
 
 export function Layout({children, layout}) {
+
+  
+  
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -267,7 +272,12 @@ function MobileHeader({title, isHome, openCart, openMenu}) {
   );
 }
 
+
 function DesktopHeader({isHome, menu, openCart, title}) {
+
+  const [showNewArrivals, setShowNewArrivals] = useState(false);
+
+
   const params = useParams();
   const {y} = useWindowScroll();
   return (
@@ -292,21 +302,21 @@ function DesktopHeader({isHome, menu, openCart, title}) {
   style={{
     transition: "transform 0.3s, cursor 0.3s",
     cursor: "pointer",
+    display: "inline-block",
   }}
   onMouseEnter={(e) => {
     e.target.style.transform = "translateY(-3px)";
-    e.target.style.cursor = "pointer";
   }}
   onMouseLeave={(e) => {
     e.target.style.transform = "translateY(0)";
-    e.target.style.cursor = "auto";
+    
   }}
 >
   All Products
 </Link>
 
-        
-        <Link
+
+<Link
   className="font"
   to="/collections/vintage"
   prefetch="intent"
@@ -323,7 +333,7 @@ function DesktopHeader({isHome, menu, openCart, title}) {
   Vintage Collection
 </Link>
 
-        
+           
 <Link
   className="font"
   to="/collections/sale"
@@ -341,6 +351,7 @@ function DesktopHeader({isHome, menu, openCart, title}) {
   Sale
 </Link>
 
+
 <Link
   className="font"
   to="/collections/new-arrivals"
@@ -357,6 +368,7 @@ function DesktopHeader({isHome, menu, openCart, title}) {
 >
   New Arrivals
 </Link>
+
 
 
 
@@ -393,6 +405,9 @@ function DesktopHeader({isHome, menu, openCart, title}) {
 >
   About Us
 </Link>
+
+
+
 
         <nav className="flex gap-8">
           {/* Top level menu items */}
@@ -520,6 +535,32 @@ function Footer({menu}) {
       : menu?.items?.length + 1
     : [];
 
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsModalOpen(true);
+      }, 5000);
+  
+      return () => {
+        clearTimeout(timer);
+      };
+    }, []);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+      setIsModalOpen(true);
+    };
+  
+    const closeModal = () => {
+      setIsModalOpen(false);
+    };
+
+    const handleOverlayClick = (e) => {
+      if (e.target === e.currentTarget) {
+        closeModal();
+      }
+    };
+
   return (
     <Section
       divider={isHome ? 'none' : 'top'}
@@ -528,13 +569,20 @@ function Footer({menu}) {
       className={`grid min-h-[25rem] items-start grid-flow-row w-full gap-6 py-8 px-6 md:px-8 lg:px-12 md:gap-8 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-${itemsCount}
         bg-primary dark:bg-contrast dark:text-primary text-contrast overflow-hidden`}
     >
+      
       <FooterMenu menu={menu} />
+     
       <CountrySelector />
       <div
         className={`self-end pt-8 opacity-50 md:col-span-2 lg:col-span-${itemsCount}`}
       >
-        &copy; {new Date().getFullYear()} / Shopify, Inc. Hydrogen is an MIT
-        Licensed Open Source project.
+        
+        &copy; {new Date().getFullYear()} / BOD&CHRISTENSEN® OFFICIAL
+
+
+       
+
+
       </div>
     </Section>
   );

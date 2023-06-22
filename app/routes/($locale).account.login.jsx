@@ -165,7 +165,7 @@ export default function Login() {
           </div>
           <div className="flex justify-between items-center mt-8 border-t border-gray-300">
             <p className="align-baseline text-sm mt-6">
-              New to {shopName}? &nbsp;
+              New to Bod & Christensen? &nbsp;
               <Link className="inline underline" to="/account/register">
                 Create an account
               </Link>

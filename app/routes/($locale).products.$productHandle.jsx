@@ -8,7 +8,7 @@ import {
   useLocation,
   useNavigation,
 } from '@remix-run/react';
-import {AnalyticsPageType, Money, ShopPayButton} from '@shopify/hydrogen';
+import {AnalyticsPageType, Money, ShopPayButton } from '@shopify/hydrogen';
 import invariant from 'tiny-invariant';
 import clsx from 'clsx';
 

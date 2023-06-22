@@ -42,6 +42,17 @@ export const PRODUCT_CARD_FRAGMENT = `#graphql
     title
     publishedAt
     handle
+    images(first: 3) {
+      edges {
+        node {
+          url
+          altText
+          width
+          height
+        }
+      }
+    }
+  
     variants(first: 1) {
       nodes {
         id
@@ -50,7 +61,7 @@ export const PRODUCT_CARD_FRAGMENT = `#graphql
           altText
           width
           height
-        }
+        }    
         price {
           amount
           currencyCode

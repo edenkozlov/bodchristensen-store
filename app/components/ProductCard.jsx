@@ -1,9 +1,10 @@
 import clsx from 'clsx';
-import {flattenConnection, Image, Money, useMoney} from '@shopify/hydrogen';
+import { flattenConnection, Image, Money, useMoney } from '@shopify/hydrogen';
+import { useState } from 'react';
 
-import {Text, Link, AddToCartButton} from '~/components';
-import {isDiscounted, isNewArrival} from '~/lib/utils';
-import {getProductPlaceholder} from '~/lib/placeholders';
+import { Text, Link, AddToCartButton } from '~/components';
+import { isDiscounted, isNewArrival } from '~/lib/utils';
+import { getProductPlaceholder } from '~/lib/placeholders';
 
 export function ProductCard({
   product,
@@ -13,15 +14,16 @@ export function ProductCard({
   onClick,
   quickAdd,
 }) {
-  let cardLabel;
+  const [isHovered, setIsHovered] = useState(false); // Add state for hover
 
+  let cardLabel;
   const cardProduct = product?.variants ? product : getProductPlaceholder();
   if (!cardProduct?.variants?.nodes?.length) return null;
 
   const firstVariant = flattenConnection(cardProduct.variants)[0];
 
   if (!firstVariant) return null;
-  const {image, price, compareAtPrice} = firstVariant;
+  const { image, price, compareAtPrice } = firstVariant;
 
   if (label) {
     cardLabel = label;
@@ -41,25 +43,50 @@ export function ProductCard({
     quantity: 1,
   };
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
-    <div className="flex flex-col gap-4">
-      <Link
-        onClick={onClick}
-        to={`/products/${product.handle}`}
-        prefetch="intent"
-      >
+    <div
+      className="flex flex-col gap-4 relative" // Add relative positioning
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Link onClick={onClick} to={`/products/${product.handle}`} prefetch="intent">
         <div className={clsx('grid gap-4', className)}>
-          
-          <div className="card-image aspect-[4/5] bg-primary/5">
+          <div className="card-image aspect-[4/5] bg-primary/5 relative"> {/* Add relative positioning */}
             {image && (
-              <Image
-                className="object-cover w-full fadeIn "
-                sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 45vw"
-                aspectRatio="4/5"
-                data={image}
-                alt={image.altText || `Picture of ${product.title}`}
-                loading={loading}
-              />
+              <>
+                <div className="w-full h-full relative"> {/* Add relative positioning */}
+                  <Image
+                    className={clsx("object-cover w-full h-full fadeIn", { 'hidden': isHovered })}
+                    sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 45vw"
+                    aspectRatio="4/5"
+                    data={image}
+                    alt={image.altText || `Picture of ${product.title}`}
+                    loading={loading}
+                  />
+                  
+                 
+                  {isHovered && (
+                    <div className="absolute inset-0 z-10"> 
+                      <Image
+                        className="object-cover w-full h-full fadeIn"
+                        sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 45vw"
+                        aspectRatio="4/5"
+                        data={product.images.edges[2].node}
+                        alt={image.altText || `Picture of ${product.title}`}
+                        loading={loading}
+                      />
+                    </div>
+                  )}
+                </div>
+              </>
             )}
             <Text
               as="label"
@@ -71,7 +98,7 @@ export function ProductCard({
           </div>
           <div className="grid gap-1">
             <Text
-              className="w-full overflow-hidden whitespace-nowrap text-ellipsis "
+              className="w-full overflow-hidden whitespace-nowrap text-ellipsis"
               as="h3"
             >
               {product.title}
@@ -80,10 +107,7 @@ export function ProductCard({
               <Text className="flex gap-4">
                 <Money withoutTrailingZeros data={price} />
                 {isDiscounted(price, compareAtPrice) && (
-                  <CompareAtPrice
-                    className={'opacity-50'}
-                    data={compareAtPrice}
-                  />
+                  <CompareAtPrice className={'opacity-50'} data={compareAtPrice} />
                 )}
               </Text>
             </div>
@@ -114,8 +138,8 @@ export function ProductCard({
   );
 }
 
-function CompareAtPrice({data, className}) {
-  const {currencyNarrowSymbol, withoutTrailingZerosAndCurrency, currencyName} =
+function CompareAtPrice({ data, className }) {
+  const { currencyNarrowSymbol, withoutTrailingZerosAndCurrency, currencyName } =
     useMoney(data);
 
   const styles = clsx('strike', className);
@@ -128,5 +152,3 @@ function CompareAtPrice({data, className}) {
     </span>
   );
 }
-
-
