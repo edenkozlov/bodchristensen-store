@@ -9,6 +9,8 @@ import {getHeroPlaceholder} from '~/lib/placeholders';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders, CACHE_SHORT} from '~/data/cache';
 
+import { Modal } from '~/components';
+
 export const headers = routeHeaders;
 
 export async function loader({params, context}) {
@@ -96,8 +98,13 @@ export default function Homepage() {
   // TODO: skeletons vs placeholders
   const skeletons = getHeroPlaceholder([{}, {}, {}]);
 
+
+
+
   return (
     <>
+
+
       
 
       lil test
@@ -111,7 +118,7 @@ export default function Homepage() {
               return (
                 <ProductSwimlane
                   products={products.nodes}
-                  title="Featured Products"
+                  title="Featured This Week"
                   count={4}
                 />
               );
@@ -176,7 +183,7 @@ const COLLECTION_CONTENT_FRAGMENT = `#graphql
     cta: metafield(namespace: "hero", key: "cta") {
       value
     }
-    spread: metafield(namespace: "hero", key: "spread") {
+    spread: metafield(namespace: "hero"f, key: "spread") {
       reference {
         ...Media
       }
