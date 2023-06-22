@@ -25,7 +25,7 @@ export function Modal({ children, cancelLink }) {
 
   return (
     <>
-      {isOpen && (
+      {isOpen && ( 
         <div
           className="relative z-50"
           aria-labelledby="modal-title"

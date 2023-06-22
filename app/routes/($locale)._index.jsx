@@ -183,7 +183,7 @@ const COLLECTION_CONTENT_FRAGMENT = `#graphql
     cta: metafield(namespace: "hero", key: "cta") {
       value
     }
-    spread: metafield(namespace: "hero"f, key: "spread") {
+    spread: metafield(namespace: "hero", key: "spread") {
       reference {
         ...Media
       }
