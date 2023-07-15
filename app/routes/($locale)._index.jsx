@@ -9,7 +9,7 @@ import {getHeroPlaceholder} from '~/lib/placeholders';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders, CACHE_SHORT} from '~/data/cache';
 import BCTest from '../../public/BC-test.png'
-import Slide from 'react-reveal/slide'
+
 import { Link } from '~/components';
 
 
@@ -145,7 +145,7 @@ export default function Homepage() {
 
 
 <div>
-<Slide bottom>
+
   <div style={{ position: 'relative', margin: '2rem', borderRadius: '4px', overflow: 'hidden', maxHeight: '600px' }}>
     <img
       src={BCTest}
@@ -161,7 +161,7 @@ export default function Homepage() {
       <a href="http://localhost:64003/products" style={{ color: '#fff' }}>Shop Now →</a>
     </div>
   </div>
-  </Slide>
+
 </div>
 
 
