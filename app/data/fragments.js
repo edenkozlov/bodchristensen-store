@@ -42,7 +42,7 @@ export const PRODUCT_CARD_FRAGMENT = `#graphql
     title
     publishedAt
     handle
-    images(first: 4) {
+    images(first: 3) {
       edges {
         node {
           url
