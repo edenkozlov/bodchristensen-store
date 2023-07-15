@@ -4,9 +4,6 @@ import {Disclosure} from '@headlessui/react';
 import {Suspense, useEffect, useMemo, useState} from 'react';
 import { Modal } from '~/components';
 
-
-
-
 import {
   Drawer,
   useDrawer,

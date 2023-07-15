@@ -51,18 +51,22 @@ export function ProductCard({
     setIsHovered(false);
   };
 
+  
+
   return (
     <div
       className="flex flex-col gap-4 relative" // Add relative positioning
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      
       <Link onClick={onClick} to={`/products/${product.handle}`} prefetch="intent">
         <div className={clsx('grid gap-4', className)}>
           <div className="card-image aspect-[4/5] bg-primary/5 relative"> {/* Add relative positioning */}
             {image && (
               <>
-                <div className="w-full h-full relative"> {/* Add relative positioning */}
+                <div className="w-full h-full relative" > {/* Add relative positioning */}
+                
                   <Image
                     className={clsx("object-cover w-full h-full fadeIn", { 'hidden': isHovered })}
                     sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 45vw"
@@ -72,9 +76,10 @@ export function ProductCard({
                     loading={loading}
                   />
                   
-                 
+
                   {isHovered && (
                     <div className="absolute inset-0 z-10"> 
+                    
                       <Image
                         className="object-cover w-full h-full fadeIn"
                         sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 45vw"
@@ -85,8 +90,10 @@ export function ProductCard({
                       />
                     </div>
                   )}
+                  
                 </div>
               </>
+              
             )}
             <Text
               as="label"

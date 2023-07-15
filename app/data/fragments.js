@@ -42,7 +42,7 @@ export const PRODUCT_CARD_FRAGMENT = `#graphql
     title
     publishedAt
     handle
-    images(first: 3) {
+    images(first: 4) {
       edges {
         node {
           url
@@ -52,7 +52,7 @@ export const PRODUCT_CARD_FRAGMENT = `#graphql
         }
       }
     }
-  
+
     variants(first: 1) {
       nodes {
         id
@@ -81,4 +81,4 @@ export const PRODUCT_CARD_FRAGMENT = `#graphql
       }
     }
   }
-`;
+  `

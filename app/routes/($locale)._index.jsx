@@ -8,8 +8,11 @@ import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import {getHeroPlaceholder} from '~/lib/placeholders';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders, CACHE_SHORT} from '~/data/cache';
+import BCTest from '../../public/BC-test.png'
+import Slide from 'react-reveal/slide'
+import { Link } from '~/components';
 
-import { Modal } from '~/components';
+
 
 export const headers = routeHeaders;
 
@@ -105,10 +108,23 @@ export default function Homepage() {
     <>
 
 
-      
+      {/* 
+<div style={{ position: 'relative', overflow: 'hidden' }}>
+   <video
+     src="https://cdn.shopify.com/videos/c/vp/fa615419a617407e8a140c57238b2d6e/fa615419a617407e8a140c57238b2d6e.HD-1080p-7.2Mbps-15693899.mp4"
+     alt="Tracks in the snow leading to a person on a mountain top with a red jacket contrasting to an epic blue horizon with a mountain range in the distance."
+     style={{ width: '100vw', height: '75vh', objectFit: 'cover' }}
+     autoPlay
+     loop
+     muted
+     playsInline
+   />
 
-      lil test
-      
+   <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: '#fff' }}>
+     
+   </div>
+ </div>
+      */}
 
       {featuredProducts && (
         <Suspense>
@@ -126,6 +142,120 @@ export default function Homepage() {
           </Await>
         </Suspense>
       )}
+
+
+<div>
+<Slide bottom>
+  <div style={{ position: 'relative', margin: '2rem', borderRadius: '4px', overflow: 'hidden', maxHeight: '600px' }}>
+    <img
+      src={BCTest}
+      alt="Vintage"
+      style={{
+        maxWidth: '100%',
+        borderRadius: '4px'
+      }}
+    />
+    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: '#fff' }}>
+      <h2 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Vintage Collection</h2>
+      <p>Just Dropped</p>
+      <a href="http://localhost:64003/products" style={{ color: '#fff' }}>Shop Now →</a>
+    </div>
+  </div>
+  </Slide>
+</div>
+
+
+ 
+
+
+ <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 m-8">
+     <div className="hover-scroll-section">
+       <div className="relative">
+         <div style={{ paddingBottom: '100%', position: 'relative' }}>
+           <img
+             src="https://cdn.shopify.com/s/files/1/0284/9112/0771/products/BLF22308BBBRSIDE_350x350.jpg?v=1679423016"
+             alt="Vintage Cars"
+             style={{
+               position: 'absolute',
+               top: 0,
+               left: 0,
+               width: '100%',
+               height: '100%',
+               objectFit: 'cover',
+               borderRadius: '4px',
+             }}
+           />
+         </div>
+         <div className="absolute inset-0 flex flex-col justify-center items-center bg-opacity-0 hover:bg-opacity-75 transition-opacity duration-300">
+           <h3 className="text-black text-xl font-bold">About Us</h3>
+           <Link to={`http://localhost:3000/pages/copy-of-about-us`}>
+           <button className="mt-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors duration-300">
+             Learn More
+           </button>
+           </Link>
+         </div>
+       </div>
+     </div>
+     <div className="hover-scroll-section">
+       <div className="relative">
+         <div style={{ paddingBottom: '100%', position: 'relative' }}>
+           <img
+             src="https://cdn.shopify.com/s/files/1/0284/9112/0771/products/4thfeb6264-Edit-Edit_350x350.jpg?v=1679423582"
+             alt="Vintage Photography"
+             style={{
+               position: 'absolute',
+               top: 0,
+               left: 0,
+               width: '100%',
+               height: '100%',
+               objectFit: 'cover',
+               borderRadius: '4px',
+             }}
+           />
+         </div>
+         <div className="absolute inset-0 flex flex-col justify-center items-center bg-opacity-0 hover:bg-opacity-75 transition-opacity duration-300">
+
+           <h3 className="text-black text-xl font-bold">Contact Us</h3>
+           <Link to={`https://bodchristensen.ca/pages/contact-us`}>
+           <button className="mt-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors duration-300">
+             Get in Touch
+           </button>
+           </Link>
+
+         </div>
+       </div>
+     </div>
+     <div className="hover-scroll-section">
+       <div className="relative">
+         <div style={{ paddingBottom: '100%', position: 'relative' }}>
+           <img
+             src="https://cdn.shopify.com/s/files/1/0284/9112/0771/products/2-4thfeb6343-Edit_350x350.jpg?v=1679423387"
+             alt="Dining Room"
+             style={{
+               position: 'absolute',
+               top: 0,
+               left: 0,
+               width: '100%',
+               height: '100%',
+               objectFit: 'cover',
+               borderRadius: '4px',
+             }}
+           />
+         </div>
+         <div className="absolute inset-0 flex flex-col justify-center items-center bg-opacity-0 hover:bg-opacity-75 transition-opacity duration-300">
+
+
+           <h3 className="text-black text-xl font-bold">Socials</h3>
+           <Link to={`http://localhost:3000/pages/socials`}>
+           <button className="mt-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors duration-300">
+             Follow Us
+           </button>
+           </Link>
+         </div>
+       </div>
+     </div>
+   </div>
+ 
 
       {secondaryHero && (
         <Suspense fallback={<Hero {...skeletons[1]} />}>
@@ -176,7 +306,7 @@ const COLLECTION_CONTENT_FRAGMENT = `#graphql
     descriptionHtml
     heading: metafield(namespace: "hero", key: "title") {
       value
-    }
+    } 
     byline: metafield(namespace: "hero", key: "byline") {
       value
     }

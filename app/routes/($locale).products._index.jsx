@@ -11,6 +11,8 @@ import {PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import {getImageLoadingPriority} from '~/lib/const';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders, CACHE_SHORT} from '~/data/cache';
+import Pulse from 'react-reveal/Pulse'
+import BCTest from '../../public/BC-test.png'
 
 const PAGE_BY = 8;
 
@@ -67,6 +69,23 @@ export default function AllProducts() {
 
   return (
     <>
+    <div>
+<Pulse bottom>
+  <div style={{ position: 'relative', margin: '2rem', borderRadius: '4px', overflow: 'hidden', maxHeight: '600px' }}>
+    <img
+      src={BCTest}
+      alt="Vintage"
+      style={{
+        maxWidth: '100%',
+        borderRadius: '4px'
+      }}
+    />
+    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: '#fff' }}>
+      <h2 style={{ fontSize: '3rem', marginBottom: '1rem' }}>All Products</h2>
+    </div>
+  </div>
+  </Pulse>
+</div>
       <PageHeader heading="All Products" variant="allCollections" />
       <Section>
         <Pagination connection={products}>

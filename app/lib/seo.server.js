@@ -35,7 +35,7 @@ function home() {
   return {
     title: 'Home',
     titleTemplate: '%s | Bod&Christensen',
-    description: 'The best place to buy snowboarding products',
+    description: 'Proudly designed in Canada since 1994. Explore our premium designs, crafted to perfection.',
     robots: {
       noIndex: false,
       noFollow: false,
