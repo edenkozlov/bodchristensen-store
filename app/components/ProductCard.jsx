@@ -14,7 +14,8 @@ export function ProductCard({
   onClick,
   quickAdd,
 }) {
-  const [isHovered, setIsHovered] = useState(false); // Add state for hover
+  const [isHovered, setIsHovered] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   let cardLabel;
   const cardProduct = product?.variants ? product : getProductPlaceholder();
@@ -51,49 +52,46 @@ export function ProductCard({
     setIsHovered(false);
   };
 
-  
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
 
   return (
     <div
-      className="flex flex-col gap-4 relative" // Add relative positioning
+      className="flex flex-col gap-4 relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      
       <Link onClick={onClick} to={`/products/${product.handle}`} prefetch="intent">
         <div className={clsx('grid gap-4', className)}>
-          <div className="card-image aspect-[4/5] bg-primary/5 relative"> {/* Add relative positioning */}
+          <div className="card-image aspect-[4/5] bg-primary/5 relative">
             {image && (
-              <>
-                <div className="w-full h-full relative" > {/* Add relative positioning */}
-                
-                  <Image
-                    className={clsx("object-cover w-full h-full fadeIn", { 'hidden': isHovered })}
-                    sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 45vw"
-                    aspectRatio="4/5"
-                    data={image}
-                    alt={image.altText || `Picture of ${product.title}`}
-                    loading={loading}
-                  />
-                  
+              <div className="w-full h-full relative">
+                <Image
+                  className={clsx("object-cover w-full h-full fadeIn", { 'hidden': isHovered })}
+                  sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 45vw"
+                  aspectRatio="4/5"
+                  data={image}
+                  alt={image.altText || `Picture of ${product.title}`}
+                  loading={loading}
+                />
 
-                  {isHovered && (
-                    <div className="absolute inset-0 z-10"> 
-                    
-                      <Image
-                        className="object-cover w-full h-full fadeIn"
-                        sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 45vw"
-                        aspectRatio="4/5"
-                        data={product.images.edges[2].node}
-                        alt={image.altText || `Picture of ${product.title}`}
-                        loading={loading}
-                      />
-                    </div>
-                  )}
-                  
-                </div>
-              </>
-              
+                {isHovered && (
+                  <div className="absolute inset-0 z-10">
+                    <Image
+                      className="object-cover w-full h-full fadeIn"
+                      sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 45vw"
+                      aspectRatio="4/5"
+                      data={product.images.edges[2].node}
+                      alt={isLoading ? 'Loading...' : image.altText || `Picture of ${product.title}`}
+                      loading={loading}
+                      onLoad={handleImageLoad}
+                    />
+
+                    {isLoading && <div className="absolute inset-0 flex items-center justify-center">Loading...</div>}
+                  </div>
+                )}
+              </div>
             )}
             <Text
               as="label"

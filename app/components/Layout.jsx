@@ -428,13 +428,16 @@ function DesktopHeader({isHome, menu, openCart, title}) {
             </Link>
           ))}
         </nav>
+        
       </div>
       <div className="flex items-center gap-1">
+        
         <Form
           method="get"
           action={params.locale ? `/${params.locale}/search` : '/search'}
           className="flex items-center gap-2"
         >
+          
           <Input
             className={
               isHome
@@ -450,12 +453,16 @@ function DesktopHeader({isHome, menu, openCart, title}) {
             type="submit"
             className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5"
           >
+            
             <IconSearch />
           </button>
+          
         </Form>
         <AccountLink className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5" />
         <CartCount isHome={isHome} openCart={openCart} />
+        
       </div>
+      
     </header>
   );
 }

@@ -3,8 +3,8 @@ import {flattenConnection} from '@shopify/hydrogen';
 import {Await, Form, useLoaderData} from '@remix-run/react';
 import {Suspense} from 'react';
 import {
-  Pagination as Pagination,
-  getPaginationVariables as getPaginationVariables,
+  Pagination__unstable as Pagination,
+  getPaginationVariables__unstable as getPaginationVariables,
 } from '@shopify/hydrogen';
 
 import {
