@@ -33,7 +33,7 @@ export function ProductCard({
   } else if (isNewArrival(product.publishedAt)) {
     cardLabel = '';
   }
-
+  //test
   const productAnalytics = {
     productGid: product.id,
     variantGid: firstVariant.id,
