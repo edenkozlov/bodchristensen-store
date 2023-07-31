@@ -7,6 +7,7 @@ import {
   getPaginationVariables__unstable as getPaginationVariables,
 } from '@shopify/hydrogen';
 
+
 import {
   FeaturedCollections,
   Grid,
