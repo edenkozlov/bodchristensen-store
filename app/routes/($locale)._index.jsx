@@ -12,7 +12,9 @@ import BCTest from '../../public/BC-test.png'
 
 import { Link } from '~/components';
 import Landing from '../../public/AROMA.mov'
-
+import Brush from '../../public/brush.png'
+import Dress from '../../public/Dress.png'
+import Look from '../../public/Look.png'
 
 export const headers = routeHeaders;
 
@@ -107,11 +109,12 @@ export default function Homepage() {
   return (
     <>
 
-lil test
+ 
+
     
 <div style={{ position: 'relative', overflow: 'hidden' }}>
    <video
-     src="https://cdn.shopify.com/videos/c/vp/fa615419a617407e8a140c57238b2d6e/fa615419a617407e8a140c57238b2d6e.HD-1080p-7.2Mbps-15693899.mp4"
+     src={Landing}
      alt="Tracks in the snow leading to a person on a mountain top with a red jacket contrasting to an epic blue horizon with a mountain range in the distance."
      style={{ width: '100vw', height: '75vh', objectFit: 'cover' }}
      autoPlay
@@ -173,7 +176,7 @@ lil test
        <div className="relative">
          <div style={{ paddingBottom: '100%', position: 'relative' }}>
            <img
-             src="https://cdn.shopify.com/s/files/1/0284/9112/0771/products/BLF22308BBBRSIDE_350x350.jpg?v=1679423016"
+             src={Brush}
              alt="Vintage Cars"
              style={{
                position: 'absolute',
@@ -187,9 +190,9 @@ lil test
            />
          </div>
          <div className="absolute inset-0 flex flex-col justify-center items-center bg-opacity-0 hover:bg-opacity-75 transition-opacity duration-300">
-           <h3 className="text-black text-xl font-bold">About Us</h3>
+           <h3 className="text-white text-xl font-bold">About Us</h3>
            <Link to={`http://localhost:3000/pages/copy-of-about-us`}>
-           <button className="mt-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors duration-300">
+           <button className="mt-2 px-4 py-2 bg-white text-black rounded hover:bg-gray-800 transition-colors duration-300">
              Learn More
            </button>
            </Link>
@@ -200,7 +203,7 @@ lil test
        <div className="relative">
          <div style={{ paddingBottom: '100%', position: 'relative' }}>
            <img
-             src="https://cdn.shopify.com/s/files/1/0284/9112/0771/products/4thfeb6264-Edit-Edit_350x350.jpg?v=1679423582"
+             src={Dress}
              alt="Vintage Photography"
              style={{
                position: 'absolute',
@@ -215,9 +218,9 @@ lil test
          </div>
          <div className="absolute inset-0 flex flex-col justify-center items-center bg-opacity-0 hover:bg-opacity-75 transition-opacity duration-300">
 
-           <h3 className="text-black text-xl font-bold">Contact Us</h3>
+           <h3 className="text-white text-xl font-bold">Contact Us</h3>
            <Link to={`https://bodchristensen.ca/pages/contact-us`}>
-           <button className="mt-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors duration-300">
+           <button className="mt-2 px-4 py-2 bg-white text-black rounded hover:bg-gray-800 transition-colors duration-300">
              Get in Touch
            </button>
            </Link>
@@ -229,7 +232,7 @@ lil test
        <div className="relative">
          <div style={{ paddingBottom: '100%', position: 'relative' }}>
            <img
-             src="https://cdn.shopify.com/s/files/1/0284/9112/0771/products/2-4thfeb6343-Edit_350x350.jpg?v=1679423387"
+             src={Look}
              alt="Dining Room"
              style={{
                position: 'absolute',
@@ -245,9 +248,9 @@ lil test
          <div className="absolute inset-0 flex flex-col justify-center items-center bg-opacity-0 hover:bg-opacity-75 transition-opacity duration-300">
 
 
-           <h3 className="text-black text-xl font-bold">Socials</h3>
+           <h3 className="text-white text-xl font-bold">Socials</h3>
            <Link to={`http://localhost:3000/pages/socials`}>
-           <button className="mt-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors duration-300">
+           <button className="mt-2 px-4 py-2 bg-white text-black rounded hover:bg-gray-800 transition-colors duration-300">
              Follow Us
            </button>
            </Link>
@@ -255,6 +258,7 @@ lil test
        </div>
      </div>
    </div>
+ 
  
 
       {secondaryHero && (
@@ -268,6 +272,8 @@ lil test
         </Suspense>
       )}
 
+
+
       {featuredCollections && (
         <Suspense>
           <Await resolve={featuredCollections}>
@@ -276,13 +282,15 @@ lil test
               return (
                 <FeaturedCollections
                   collections={collections.nodes}
-                  title="Collections"
+                  title=""
                 />
               );
             }}
           </Await>
         </Suspense>
       )}
+
+
 
       {tertiaryHero && (
         <Suspense fallback={<Hero {...skeletons[2]} />}>
@@ -297,6 +305,9 @@ lil test
     </>
   );
 }
+
+
+
 
 const COLLECTION_CONTENT_FRAGMENT = `#graphql
   fragment CollectionContent on Collection {
