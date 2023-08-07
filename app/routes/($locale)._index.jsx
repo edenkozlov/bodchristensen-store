@@ -11,7 +11,7 @@ import {routeHeaders, CACHE_SHORT} from '~/data/cache';
 import BCTest from '../../public/BC-test.png'
 
 import { Link } from '~/components';
-
+import Landing from '../../public/AROMA.mov'
 
 
 export const headers = routeHeaders;
@@ -107,8 +107,8 @@ export default function Homepage() {
   return (
     <>
 
-
-      {/* 
+lil test
+    
 <div style={{ position: 'relative', overflow: 'hidden' }}>
    <video
      src="https://cdn.shopify.com/videos/c/vp/fa615419a617407e8a140c57238b2d6e/fa615419a617407e8a140c57238b2d6e.HD-1080p-7.2Mbps-15693899.mp4"
@@ -124,7 +124,7 @@ export default function Homepage() {
      
    </div>
  </div>
-      */}
+      
 
       {featuredProducts && (
         <Suspense>
