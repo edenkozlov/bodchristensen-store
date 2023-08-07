@@ -11,7 +11,7 @@ import {routeHeaders, CACHE_SHORT} from '~/data/cache';
 import BCTest from '../../public/BC-test.png'
 
 import { Link } from '~/components';
-//import Landing from '../../public/AROMA.mov'
+import Landing from '../../public/aromaComp.mp4'
 import Brush from '../../public/brush.png'
 import Dress from '../../public/Dress.png'
 import Look from '../../public/Look.png'
@@ -109,12 +109,10 @@ export default function Homepage() {
   return (
     <>
 
- 
 
-    
 <div style={{ position: 'relative', overflow: 'hidden' }}>
    <video
-     src=""//{Landing}
+     src={Landing}
      alt="Tracks in the snow leading to a person on a mountain top with a red jacket contrasting to an epic blue horizon with a mountain range in the distance."
      style={{ width: '100vw', height: '75vh', objectFit: 'cover' }}
      autoPlay
