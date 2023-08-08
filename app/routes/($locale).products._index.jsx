@@ -13,6 +13,7 @@ import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders, CACHE_SHORT} from '~/data/cache';
 import BCTest from '../../public/BC-test.png'
 
+
 const PAGE_BY = 8;
 
 export const headers = routeHeaders;
