@@ -364,7 +364,7 @@ const COLLECTION_HERO_QUERY = `#graphql
 export const HOMEPAGE_FEATURED_PRODUCTS_QUERY = `#graphql
   query homepageFeaturedProducts($country: CountryCode, $language: LanguageCode)
   @inContext(country: $country, language: $language) {
-    products(first: 8) {
+    products(first: 8 sortKey: PRICE) {
       nodes {
         ...ProductCard
       }
