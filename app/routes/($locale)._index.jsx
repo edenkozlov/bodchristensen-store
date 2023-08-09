@@ -157,9 +157,7 @@ export default function Homepage() {
       }}
     />
     <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: '#fff' }}>
-      <h2 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Vintage Collection</h2>
-      <p>Just Dropped</p>
-      <a href="http://www.bod94.com/products" style={{ color: '#fff' }}>Shop Now →</a>
+      <h2 href="http://www.bod94.com/products" style={{ fontSize: '3rem', marginBottom: '1rem' }}>Vintage Collection</h2>
     </div>
   </div>
 
