@@ -578,9 +578,11 @@ function Footer({menu}) {
       className={`grid min-h-[25rem] items-start grid-flow-row w-full gap-6 py-8 px-6 md:px-8 lg:px-12 md:gap-8 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-${itemsCount}
         bg-primary dark:bg-contrast dark:text-primary text-contrast overflow-hidden`}
     >
+      <div>
       <CountrySelector />
+      </div>
 
-  
+  <br></br>
       <div>
         <strong>Information</strong>
         <div><a href="https://bodchristensen.ca/pages/payment-security" target="_blank" rel="noopener noreferrer">Payment & Security</a></div>
