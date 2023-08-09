@@ -579,22 +579,49 @@ function Footer({menu}) {
         bg-primary dark:bg-contrast dark:text-primary text-contrast overflow-hidden`}
     >
       <CountrySelector />
-      <br></br>
-      <FooterMenu menu={menu} />
-     
-      
-      <div
-        className={`self-end pt-8 opacity-50 md:col-span-2 lg:col-span-${itemsCount}`}
-      >
-        
-        &copy; {new Date().getFullYear()} / BOD&CHRISTENSEN® OFFICIAL
 
-
-       
-
-
+  
+      <div>
+        <strong>Information</strong>
+        <div><a href="https://bodchristensen.ca/pages/payment-security" target="_blank" rel="noopener noreferrer">Payment & Security</a></div>
+        <div><a href="https://bodchristensen.ca/pages/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></div>
+        <div><a href="https://bodchristensen.ca/pages/terms-conditions" target="_blank" rel="noopener noreferrer">Terms and Conditions</a></div>
+        <div><a href="https://bodchristensen.ca/pages/shipping-returns-1" target="_blank" rel="noopener noreferrer">Shipping and Returns</a></div>
+        <div><a href="https://bodchristensen.ca/pages/sizing-charts" target="_blank" rel="noopener noreferrer">Sizing Charts</a></div>
       </div>
-    </Section>
+
+      
+      
+      
+
+      <div>
+        <strong>Need Help?</strong>
+        <div><a href="https://bodchristensen.ca/pages/faq" target="_blank" rel="noopener noreferrer">FAQ</a></div>
+        <div><a href="https://bodchristensen.ca/pages/contact-us" target="_blank" rel="noopener noreferrer">Contact Page</a></div>
+      </div>
+
+      <div>
+        <strong>Contact Us</strong>
+        <div><a href="https://www.instagram.com/bodchristensen/?hl=en" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+        <div><a href="https://www.facebook.com/bodchristensen94/" target="_blank" rel="noopener noreferrer">Facebook</a></div>
+      </div>
+
+
+      
+      
+   
+      
+      <br></br>
+      
+      {/*
+      <FooterMenu menu={menu} />
+      */}
+
+<div className={`self-end pt-8 opacity-50 md:col-span-2 lg:col-span-${itemsCount}`}>
+      &copy; {new Date().getFullYear()} / BOD&CHRISTENSEN® OFFICIAL
+    </div>
+</Section>
+
   );
 }
 
