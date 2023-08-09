@@ -183,6 +183,7 @@ function MenuMobileNav({ menu, onClose }) {
         </Link>
       </span>
 
+{/* 
       <span className="block">
         <Link to="/" onClick={onClose} className="pb-1">
           <Text as="span" size="copy">
@@ -190,6 +191,7 @@ function MenuMobileNav({ menu, onClose }) {
           </Text>
         </Link>
       </span>
+      */}
       <span className="block">
         <Link to="/pages/copy-of-about-us" onClick={onClose} className="pb-1">
           <Text as="span" size="copy">
@@ -371,7 +373,7 @@ function DesktopHeader({isHome, menu, openCart, title}) {
 
 
 
-
+{/* 
 <Link
 
   className="font"
@@ -389,6 +391,7 @@ function DesktopHeader({isHome, menu, openCart, title}) {
 >
   The Runway
 </Link>
+*/}
 
 
 <Link

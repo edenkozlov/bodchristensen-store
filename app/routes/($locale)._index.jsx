@@ -159,7 +159,7 @@ export default function Homepage() {
     <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: '#fff' }}>
       <h2 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Vintage Collection</h2>
       <p>Just Dropped</p>
-      <a href="http://localhost:64003/products" style={{ color: '#fff' }}>Shop Now →</a>
+      <a href="http://www.bod94.com/products" style={{ color: '#fff' }}>Shop Now →</a>
     </div>
   </div>
 
@@ -189,7 +189,7 @@ export default function Homepage() {
          </div>
          <div className="absolute inset-0 flex flex-col justify-center items-center bg-opacity-0 hover:bg-opacity-75 transition-opacity duration-300">
            <h3 className="text-white text-xl font-bold">About Us</h3>
-           <Link to={`http://localhost:3000/pages/copy-of-about-us`}>
+           <Link to={`http://www.bod94.com/pages/copy-of-about-us`}>
            <button className="mt-2 px-4 py-2 bg-white text-black rounded hover:bg-gray-800 transition-colors duration-300">
              Learn More
            </button>
@@ -247,7 +247,7 @@ export default function Homepage() {
 
 
            <h3 className="text-white text-xl font-bold">Socials</h3>
-           <Link to={`http://localhost:3000/pages/socials`}>
+           <Link to={`http://www.bod94.com/pages/socials`}>
            <button className="mt-2 px-4 py-2 bg-white text-black rounded hover:bg-gray-800 transition-colors duration-300">
              Follow Us
            </button>
