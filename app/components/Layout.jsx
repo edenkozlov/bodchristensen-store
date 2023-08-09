@@ -603,7 +603,7 @@ function Footer({menu}) {
       </div>
 
       <div>
-        <strong>Contact Us</strong>
+        <strong>Our Socials</strong>
         <div><a href="https://www.instagram.com/bodchristensen/?hl=en" target="_blank" rel="noopener noreferrer">Instagram</a></div>
         <div><a href="https://www.facebook.com/bodchristensen94/" target="_blank" rel="noopener noreferrer">Facebook</a></div>
       </div>
