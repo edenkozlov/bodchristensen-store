@@ -2,8 +2,8 @@ import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import invariant from 'tiny-invariant';
 import {
-  Pagination__unstable as Pagination,
-  getPaginationVariables__unstable as getPaginationVariables,
+  Pagination as Pagination,
+  getPaginationVariables as getPaginationVariables,
 } from '@shopify/hydrogen';
 
 import {PageHeader, Section, ProductCard, Grid} from '~/components';
